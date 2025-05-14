@@ -16,8 +16,7 @@ var differenceOfSum = function (nums) {
             digitSum+=Number(dummy[j]);
         }
     }
-    console.log(elemSum);
-    console.log(digitSum);
+    
     if(elemSum>digitSum){
         return elemSum-digitSum;
     } else{
