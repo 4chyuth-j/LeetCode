@@ -3,7 +3,7 @@
  * @return {number}
  */
 var averageValue = function(nums) {
-    let sum = 0;
+       let sum = 0;
     let count = 0;
 
     for(let j=0; j<nums.length; j++){
@@ -12,7 +12,6 @@ var averageValue = function(nums) {
             sum +=nums[j];
         }
     }
- 
-    return count>0? Math.floor(sum/count) : 0;
 
+    return count>0? Math.floor(sum/count) : 0;
 };
