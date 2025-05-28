@@ -16,6 +16,6 @@ var majorityElement = function(nums) {
 
     obj.sort((a,b)=>b.count-a.count);
 
-    console.log(obj);
+    
     return obj[0].count>nums.length/2? obj[0].val: 0;
 };
