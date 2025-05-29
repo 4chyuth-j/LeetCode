@@ -5,16 +5,16 @@
 var expect = function(val) {
    return {
         inVal:val,
-        toBe(outVal){
-            if(outVal === this.inVal ){
+        toBe(inVal){
+            if(inVal === this.inVal ){
                 return true;
             } else {
                 throw new Error("Not Equal");
             }
         },
 
-        notToBe(outVal){
-            if(outVal !== this.inVal){
+        notToBe(inVal){
+            if(inVal !== this.inVal){
                 return true;
             } else {
                 throw new Error("Equal");
