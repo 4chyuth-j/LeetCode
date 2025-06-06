@@ -14,11 +14,11 @@ var arrayRankTransform = function(arr) {
         rank++
     }
 
-    // for(let item of arr){
-    //     mapArr.push(obj[item]);
-    // }
+    for(let item of arr){
+        mapArr.push(obj[item]);
+    }
 
-     mapArr = arr.map(item => obj[item]);
+    //  mapArr = arr.map(item => obj[item]);
 
     console.log(mapArr);
     return mapArr;
