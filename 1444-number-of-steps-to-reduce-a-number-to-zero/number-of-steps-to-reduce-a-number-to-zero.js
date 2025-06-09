@@ -3,15 +3,15 @@
  * @return {number}
  */
 var numberOfSteps = function(num) {
-    function counter(num,count){
-        if(num==0) return count;
-        if(num%2==0) {
-            return counter(num/2,++count);
-        } else {
-            return counter(num-1,++count);
-        }
+    function counter(n,steps){
+        if(n==0) return steps;
+
+        if(n%2==0) return counter(n/2, ++steps);
+        else return counter(n-1, ++steps);
     }
 
     return counter(num,0);
+
+
     
 };
