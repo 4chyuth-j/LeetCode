@@ -4,8 +4,8 @@
  * @return {number}
  */
 var myPow = function (x, n) {
-    if (n == 0) return 1;
-    if (x == 0) return 0;
+    // if (n == 0) return 1;
+    // if (x == 0) return 0;
 
     function pow(num, n) {
         if (n === 0) return 1;
