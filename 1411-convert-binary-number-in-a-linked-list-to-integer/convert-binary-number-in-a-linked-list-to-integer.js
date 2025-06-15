@@ -10,15 +10,22 @@
  * @return {number}
  */
 var getDecimalValue = function(head) {
-    let curr = head;
-    let elem='';
-    while(curr){
-        elem+=`${curr.val}`;
-        curr = curr.next;
-    }
-    let decimal = 0;
-    for(let i=0; i<elem.length; i++){
-        decimal = decimal*2 + Number(elem[i]);
+    // let elem ='';
+    // while(head!=null){
+    //     elem+=`${head.val}`;
+    //     head = head.next;
+    // }
+
+    // let decimal = 0;
+    // for(let i=0; i<elem.length; i++){
+    //     decimal = decimal *2 + Number(elem[i]);
+    // }
+    // return decimal;
+
+    let decimal =0;
+    while(head){
+        decimal = decimal*2 + head.val;
+        head = head.next;
     }
     return decimal;
 };
