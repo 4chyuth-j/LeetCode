@@ -23,9 +23,9 @@ var middleNode = function(head) {
 function getSize(head){
     let len = 0;
     let curr = head;
-    while(head){
+    while(curr){
         len++;
-        head = head.next;
+        curr = curr.next;
     }
 
     return len;
