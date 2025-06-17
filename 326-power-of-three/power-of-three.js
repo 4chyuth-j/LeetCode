@@ -3,12 +3,12 @@
  * @return {boolean}
  */
 var isPowerOfThree = function(n) {
-    function powerThree(num){
-        if(num<=0) return false;
+    function isPower(num){
+        if(num<1) return false;
         if(num==1) return true;
 
-        return powerThree(num/3);
+        return isPower(num/3);
     }
 
-    return powerThree(n);
+    return isPower(n);
 };
