@@ -13,13 +13,13 @@
 var addTwoNumbers = function(l1, l2) {
     let dummy = new ListNode(-1);
     let tail = dummy;
-    let carry = 0;
-    while(l1!==null || l2!==null || carry){
-        let sum = carry;
-        if(l1) sum +=l1.val;
-        if(l2) sum +=l2.val;
+    let counter = 0;
+    while(l1!=null || l2!=null || counter){
+        let sum = counter;
+        if(l1) sum+=l1.val;
+        if(l2) sum+=l2.val;
+        counter = Math.floor(sum/10);
 
-        carry = Math.floor(sum/10);
         tail.next = new ListNode(sum%10);
         tail = tail.next;
         if(l1) l1 = l1.next;
