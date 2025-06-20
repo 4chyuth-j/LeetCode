@@ -10,32 +10,20 @@
  * @return {ListNode}
  */
 var deleteMiddle = function(head) {
-    if(head.next == null){
-        head = null;
-        return head;
-    }
+ if(head == null || head.next == null)return null;
 
     let slow = head;
     let fast = head;
-    let prev = null;
-    while(fast!=null && fast.next!=null){
-        prev = slow;
+    let dummy = null;
+
+    while(fast !== null && fast.next !== null)
+    {
+        dummy = slow;
         slow = slow.next;
         fast = fast.next.next;
+
     }
-    prev.next = prev.next.next;
-    slow.next = null; // remove
-    return head;
-
-    // let slow = head;
-    // let fast = head.next.next;
-    // while(fast!=null && fast.next!=null){
-    //     slow= slow.next;
-    //     fast= fast.next.next;
-    // }
-
-    // slow.next = slow.next.next;
-    // return head;
-     
+    dummy.next = slow.next;
+    return head;  
 
 };
