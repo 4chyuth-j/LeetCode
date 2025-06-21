@@ -4,9 +4,6 @@
  */
 var findMaxK = function(nums) {
     nums.sort((a,b)=>b-a);
-    // for(let i=0; i<nums.length; i++){
-    //     if(nums.includes(-nums[i]))
-    // }
     let i=0;
     while(nums[i]>0 && i<nums.length){
         if(nums.includes(-nums[i])){
