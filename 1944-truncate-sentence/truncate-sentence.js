@@ -4,12 +4,18 @@
  * @return {string}
  */
 var truncateSentence = function(s, k) {
-    // let str = s.split(" ");
-    // newStr=str.slice(0,k);
-    // newStr = newStr.join(" ");
-    // return newStr;
-
-    let str = s.split(" ").slice(0,k).join(" ");
-    return str;
+   
+    // let str = s.split(" ").slice(0,k).join(" ");
+    // return str;
+    let spaceCount = 0;
+    for(let i = 0; i < s.length; i++) {
+        if(s[i] === ' ') {
+            spaceCount++;
+            if(spaceCount === k) {
+                return s.substring(0, i);
+            }
+        }
+    }
+    return s; // If k >= number of words
 
 };
