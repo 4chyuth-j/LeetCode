@@ -27,7 +27,7 @@ var mergeTwoLists = function(h1, h2) {
     }
 
     if(h1) curr.next = h1;
-    if(h2) curr.next = h2;
+    else curr.next = h2;
 
     return dum.next;
 };
