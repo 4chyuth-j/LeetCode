@@ -5,19 +5,13 @@
 var isValid = function (s) {
     
     
-    // let arr = [[')', '('], [']', '['], ['}', '{']];
-    // let closing = new Map(arr);
-    const closing = {
-        ')': '(',
-        ']': '[',
-        '}': '{'
-    }
-
+    let arr = [[')', '('], [']', '['], ['}', '{']];
+    let closing = new Map(arr);
 
     let stack = [];
 
     for (let i = 0; i < s.length; i++) {
-        if (!closing[s[i]]) {
+        if (!closing.has(s[i])) {
 
             stack.push(s[i]);
 
@@ -25,7 +19,7 @@ var isValid = function (s) {
 
             if(stack.length==0) return false;
 
-            if (stack.pop() == closing[s[i]]) {
+            if (stack.pop() == closing.get(s[i])) {
                 continue;
             } else {
                 return false;
@@ -37,6 +31,5 @@ var isValid = function (s) {
     if(stack.length!=0) return false;
 
     return true;
-
 
 };
