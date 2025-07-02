@@ -3,8 +3,7 @@
  * @return {boolean}
  */
 var isValid = function (s) {
-    if (s.length % 2 == 1) return false;
-
+    
     let arr = ['(', '[', '{'];
     let opening = new Set(arr);
     arr = [[')', '('], [']', '['], ['}', '{']];
