@@ -4,24 +4,15 @@
  */
 var countEven = function(num) {
     let count =0;
-    for(let i=1; i<=num;i++){
-        let number = i;
-        if(number<10 && number%2==0){
-            console.log(number);
-            count++
-        } else {
-            let strNum = `${number}`;
-            strNum = strNum.split('');
-            let sum=0;
-            for(let i=0; i<strNum.length; i++){
-                sum += Number(strNum[i]);
-            }
-            if(sum%2==0){
-                console.log(number);
-                count++;
-            }
-        }
-
+  for(let i=1; i<=num; i++){
+    let number =i, sum=0;
+    while(number!=0){
+        sum += number%10;
+        number = Math.floor(number/10);
     }
-    return count;
+    if(sum%2==0){
+        count++;
+    }
+  }
+  return count;
 };
