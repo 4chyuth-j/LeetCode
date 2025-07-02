@@ -4,15 +4,14 @@
  */
 var isValid = function (s) {
     
-    let arr = ['(', '[', '{'];
-    let opening = new Set(arr);
-    arr = [[')', '('], [']', '['], ['}', '{']];
+    
+    let arr = [[')', '('], [']', '['], ['}', '{']];
     let closing = new Map(arr);
 
     let stack = [];
 
     for (let i = 0; i < s.length; i++) {
-        if (opening.has(s[i])) {
+        if (!closing.has(s[i])) {
 
             stack.push(s[i]);
 
