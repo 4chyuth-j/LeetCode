@@ -11,7 +11,7 @@
  * @return {ListNode}
  */
 var rotateRight = function(head, k) {
-    if(head==null || head.next==null) return head;
+    if(head==null || head.next==null || k==0) return head;
     let length = 0;
     let curr = head;
     while(curr){
@@ -20,6 +20,7 @@ var rotateRight = function(head, k) {
     }
 
     k = k%length;
+    if(k==0) return head;
 
     for(let i=1; i<=k; i++){
         let headOld = head;
