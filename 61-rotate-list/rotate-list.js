@@ -22,8 +22,8 @@ var rotateRight = function(head, k) {
     k = k%length;
 
     for(let i=1; i<=k; i++){
-        let headOld = head;
-        let last = headOld;
+        
+        let last = head;
         while(last.next.next!=null){
             last = last.next;
         }
@@ -32,6 +32,8 @@ var rotateRight = function(head, k) {
         last.next = null;
         rotateElem.next = head;
         head = rotateElem;
+
+        
     }
     return head;
 };
