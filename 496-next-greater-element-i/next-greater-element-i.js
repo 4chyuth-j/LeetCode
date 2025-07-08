@@ -4,57 +4,25 @@
  * @return {number[]}
  */
 
-class Stack {
-    constructor() {
-        this.stack = [];
-    }
 
-    push(value) {
-        this.stack.push(value);
-    }
-
-    pop() {
-        if (this.isEmpty()) {
-            console.log("Stack is empty");
-            return null;
-        }
-        return this.stack.pop();
-    }
-
-    top() {
-        if (this.isEmpty()) {
-            console.log("Stack is empty");
-            return null;
-        }
-        return this.stack[this.stack.length - 1];
-    }
-
-    isEmpty() {
-        return this.stack.length === 0;
-    }
-
-    size() {
-        return this.stack.length;
-    }
-}
 
 
 var nextGreaterElement = function (nums1, nums2) {
     let size = nums2.length;
 
-    let st = new Stack();
+    let st = [];
     let map = new Map();
 
     for (let i = size - 1; i >= 0; i--) {
-        while (st.size() > 0 && st.top() <= nums2[i]) {
+        while (st.length > 0 && st[st.length-1] <= nums2[i]) {
             st.pop();
         }
-        if (st.isEmpty()) {
+        if (st.length==0) {
 
             map.set(nums2[i], -1);
 
         } else {
-            map.set(nums2[i], st.top());
+            map.set(nums2[i], st[st.length-1]);
         }
 
         st.push(nums2[i]);
