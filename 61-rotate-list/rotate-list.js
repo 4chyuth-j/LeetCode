@@ -22,8 +22,8 @@ var rotateRight = function(head, k) {
     k = k%length;
 
     for(let i=1; i<=k; i++){
-        
-        let last = head;
+        let headOld = head;
+        let last = headOld;
         while(last.next.next!=null){
             last = last.next;
         }
@@ -32,8 +32,31 @@ var rotateRight = function(head, k) {
         last.next = null;
         rotateElem.next = head;
         head = rotateElem;
-
-        
     }
     return head;
+    // if(head==null || head.next==null) return head;
+    // let length = 0;
+    // let curr = head;
+    // while(curr){
+    //     length++;
+    //     curr = curr.next;
+    // }
+
+    // k = k%length;
+
+    // for(let i=1; i<=k; i++){
+        
+    //     let last = head;
+    //     while(last.next.next!=null){
+    //         last = last.next;
+    //     }
+
+    //     let rotateElem = last.next;
+    //     last.next = null;
+    //     rotateElem.next = head;
+    //     head = rotateElem;
+
+        
+    // }
+    // return head;
 };
