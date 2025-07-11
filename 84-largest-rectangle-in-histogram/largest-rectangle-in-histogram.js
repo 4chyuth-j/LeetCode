@@ -3,23 +3,6 @@
  * @return {number}
  */
 var largestRectangleArea = function(heights) {
-    // let maxArea = 0;
-    // for(let i=0; i<heights.length; i++){
-    //     let minHeight = heights[i];
-    //     let width =0;
-    //     for(let j=i; j<heights.length; j++){
-    //         width +=1;
-    //         if(heights[j]<minHeight){
-    //             minHeight = heights[j];
-    //         }
-    //         let area = minHeight*width;
-    //         if(maxArea < area) {
-    //             maxArea = area;
-    //         }
-    //     }
-    // }
-
-    // return maxArea;
 
     let left = [];
     let right = [];
