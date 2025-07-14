@@ -11,14 +11,12 @@ var matchPlayersAndTrainers = function(players, trainers) {
     let count = 0;
     let p1 = 0;
     let p2 = 0;
-    while(p1<=p && p2<=t){
+    while(p1<p && p2<t){
         if(players[p1]<=trainers[p2]){
             count++;
-            p1++;
-            p2++;
-        } else {
-            p2++;
-        }
+            p1++; 
+        } 
+        p2++;
     }
 
     return count;
