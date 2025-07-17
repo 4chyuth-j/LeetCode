@@ -4,28 +4,25 @@
  * @return {number[]}
  */
 var relativeSortArray = function(arr1, arr2) {
-    let freqMap = new Map();
-    let result = [];
-    let rem = [];
-    for(let i=0; i<arr1.length; i++){
-        freqMap.set(arr1[i],(freqMap.get(arr1[i]) || 0)+1);
-    }
+     const positionMap = new Map();
+    arr2.forEach((value, index) => {
+        positionMap.set(value, index);
+    });
 
-    for(let i=0; i<arr2.length; i++){
-        while(freqMap.get(arr2[i])>0){
-            result.push(arr2[i]);
-            freqMap.set(arr2[i],freqMap.get(arr2[i])-1);
+    arr1.sort((a, b) => {
+        const aIn = positionMap.has(a);
+        const bIn = positionMap.has(b);
+
+        if (aIn && bIn) {
+            return positionMap.get(a) - positionMap.get(b); 
+        } else if (aIn) {
+            return -1; 
+        } else if (bIn) {
+            return 1; 
+        } else {
+            return a - b; 
         }
-    }
+    });
 
-    for(let [key,value] of freqMap){
-        while(value>0){
-            rem.push(key);
-            value--;
-        }
-    }
-
-    rem.sort((a,b)=>a-b);
-
-    return [...result,...rem];
+    return arr1;
 };
