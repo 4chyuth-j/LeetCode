@@ -3,37 +3,31 @@
  * @return {boolean}
  */
 var isPalindrome = function(x) {
-//     let flag=0;
-//    let testvar1=String(x);
-//    let size=testvar1.length;
-
-
-//     for(let i=0; i<size/2; i++){
-//         if(testvar1[i]!=testvar1[size-i-1]){
-          
-//           flag++;
-//           break;
-           
-//         }
+// let item = String(x);
+// let start = 0;
+// let end = item.length-1;
+// while(start<end){
+//     if(item[start]===item[end]){
+//         start++;
+//         end--;
+//     } else {
+//         return false
 //     }
+// }
+// return true;
 
-//     if(flag!=0){
-//         return  false;
-//     }else{
-//         return true;
-//     }
+let rev = 0;
+let n = x;
+while(n>0){
+    rev = rev*10 + n%10;
+    n = Math.floor(n/10);
+} 
 
-let item = String(x);
-let start = 0;
-let end = item.length-1;
-while(start<end){
-    if(item[start]===item[end]){
-        start++;
-        end--;
-    } else {
-        return false
-    }
+console.log(rev);
+if(rev==x){
+    return true;
+} else {
+    return false;
 }
-return true;
 
 };
