@@ -4,8 +4,13 @@
  */
 var toLowerCase = function(s) {
     let res = '';
+    let char = /[A-Z]/;
     for(let i=0; i<s.length; i++){
-        res+=s[i].toLowerCase();
+        if(char.test(char)){
+          res+=s[i].toLowerCase();
+        } else {
+            res +=s[i];
+        }
     }
     return res;
 };
