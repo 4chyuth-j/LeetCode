@@ -4,16 +4,16 @@
  */
 var findDuplicates = function(nums) {
 
-    let freq = new Map();
-    for(let item of nums){
-        freq.set(item,(freq.get(item)||0)+1);
-    }
-    for(let [key,value] of freq){
-        if(value==1){
-            freq.delete(key);
+    let res = [];
+    for(let i=0; i<nums.length; i++){
+        let index = Math.abs(nums[i])-1
+        if(nums[index]<0){
+            res.push(Math.abs(nums[i]));
+        } else {
+            nums[index]*=-1;
         }
     }
 
-    return [...freq.keys()];
+    return res;
     
 };
