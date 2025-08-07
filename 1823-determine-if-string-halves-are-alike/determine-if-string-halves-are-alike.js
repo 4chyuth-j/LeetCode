@@ -13,5 +13,6 @@ var halvesAreAlike = function (s) {
         end--;
     }
 
-    return count ===0;
+    if(count==0) return true;
+    else return false;
 };
