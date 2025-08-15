@@ -12,4 +12,6 @@ var peakIndexInMountainArray = function(arr) {
         else if(arr[mid-1]<arr[mid]) start = mid+1;
         else end = mid-1;
     }
+
+    return -1;
 };
