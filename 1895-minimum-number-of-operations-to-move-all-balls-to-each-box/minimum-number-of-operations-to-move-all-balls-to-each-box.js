@@ -10,14 +10,14 @@ var minOperations = function(boxes) {
             one.push(i);
         }
     }
-    console.log(one);
+    
     let res = [];
     for(let i=0; i<boxes.length;i++){
         let count =0;
-        for(let j=0; j<one.length; j++){
-            count+=Math.abs(i-one[j]);
+        for(let indx of one){
+            count+=Math.abs(i-indx);
         }
-        // console.log(count);
+        
         res.push(count);
     }
 
