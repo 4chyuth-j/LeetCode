@@ -11,14 +11,14 @@
  * @return {number}
  */
 var countNodes = function (root) {
-    let count = [];
+    let count = [0];
     getCount(root, count);
-    return count.length;
+    return count[0];
 };
 
 function getCount(root, count) {
     if (root != null) {
-        count.push(root.val);
+        count[0]+=1
         getCount(root.left, count);
         getCount(root.right, count);
     }
