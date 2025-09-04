@@ -5,16 +5,6 @@
  */
 var searchInsert = function (nums, target) {
 
-    //    if(nums.indexOf(target)>=0){
-    //     return nums.indexOf(target);
-    //    }
-    //    else{
-    //       nums.push(target);
-    //       nums.sort((a,b)=>a-b);
-    //       return nums.indexOf(target);
-
-
-    //    }
     let res = nums.length
     let start = 0, end = nums.length - 1;
     while (start <= end) {
