@@ -3,7 +3,7 @@
  * @return {string}
  */
 var sortVowels = function(s) {
-    let res = s.split("");
+    
     let vowel = new Array();
     for(let i=0; i<s.length; i++){
         if(/^[aeiou]$/i.test(s[i])){
@@ -12,14 +12,16 @@ var sortVowels = function(s) {
     }
     
     vowel.sort();
-    
+    let res ='';
     let ind=0;
-    for(let i=0; i<res.length; i++){
-        if(/^[aeiou]$/i.test(res[i])){
-            res[i] = vowel[ind];
+    for(let i=0; i<s.length; i++){
+        if(/^[aeiou]$/i.test(s[i])){
+            res += vowel[ind];
             ind++;
+        } else {
+            res += s[i];
         }
     }
 
-    return res.join("");
+    return res;
 };
