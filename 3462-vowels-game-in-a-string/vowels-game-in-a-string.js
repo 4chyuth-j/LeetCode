@@ -3,13 +3,15 @@
  * @return {boolean}
  */
 var doesAliceWin = function(s) {
-    let count =0;
+    // let count =0;
     for(let i=0; i<s.length; i++){
         if(/^[aeiou]$/i.test(s[i])){
-             count++;
+             return true;
         }
     }
+
+    return false;
     
-    if(count==0) return false;
-    else return true;
+    // if(count==0) return false;
+    // else return true;
 };
