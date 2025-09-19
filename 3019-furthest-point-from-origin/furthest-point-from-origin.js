@@ -10,13 +10,5 @@ var furthestDistanceFromOrigin = function(moves) {
         else if(moves[i]=='_') blank++;
     }
 
-    if(blank==0){
-        return Math.abs(l-r);
-    } else if(l>=r){
-        return (l+blank)-r;
-    } else if(r>l){
-        return (r+blank)-l;
-    } else if(l==0 && r==0){
-        return blank;
-    }
+    return Math.abs(l - r) + blank;
 };
