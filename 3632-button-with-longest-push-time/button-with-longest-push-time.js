@@ -4,7 +4,7 @@
  */
 var buttonWithLongestTime = function (events) {
     let max = 0;
-    let ind = events[0][0];
+    let ind = 0;
     let prev = 0;
 
     for (let i = 0; i < events.length; i++) {
