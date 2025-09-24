@@ -19,6 +19,5 @@ var buyChoco = function(prices, money) {
 
     let netamount = money-(fmin+smin);
 
-    if(netamount>=0) return netamount;
-    else return money;
+    return netamount >= 0 ? netamount : money;
 };
