@@ -4,11 +4,21 @@
  * @return {number}
  */
 var buyChoco = function(prices, money) {
-    prices.sort((a,b)=>a-b);
-    let amount = prices[0]+prices[1];
-    if(amount<=money){
-        return money-amount;
-    } else {
-        return money;
+   
+    let fmin = Infinity;
+    let smin = Infinity;
+
+    for(let p of prices){
+        if(p<fmin){
+            smin = fmin;
+            fmin = p
+        } else {
+            smin = Math.min(smin,p);
+        }
     }
+
+    let netamount = money-(fmin+smin);
+
+    if(netamount>=0) return netamount;
+    else return money;
 };
