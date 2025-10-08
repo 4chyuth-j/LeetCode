@@ -13,6 +13,7 @@ var getMinDistance = function(nums, target, start) {
         if(nums[i]==target){
             let absVal = Math.abs(i-start);
             res = Math.min(res,absVal);
+            if(absVal === 0) return 0;
         }
 
     }
