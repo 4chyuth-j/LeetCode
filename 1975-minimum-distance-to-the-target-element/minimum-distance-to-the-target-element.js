@@ -7,7 +7,8 @@
 var getMinDistance = function(nums, target, start) {
 
     let res = Infinity;
-    for(let i=0; i<nums.length; i++){
+    let n = nums.length;
+    for(let i=0; i<n; i++){
 
         if(nums[i]==target){
             let absVal = Math.abs(i-start);
