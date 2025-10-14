@@ -5,10 +5,12 @@
 var groupAnagrams = function(strs) {
     let map = {};
     let res = [];
-    let dum = '';
+
+    // console.log(getKey('abccdb'));
+    
     
     for(let item of strs){
-        dum = item.split('').sort().join('');
+        let dum = getKey(item);
         if(map.hasOwnProperty(dum)){
             map[dum].push(item);
         } else {
@@ -23,3 +25,12 @@ var groupAnagrams = function(strs) {
     return res;
 
 };
+
+function getKey(strg){
+    let arr = new Array(26).fill(0);
+    for(let c of strg){
+        arr[c.charCodeAt(0)-'a'.charCodeAt(0)]++
+    }
+
+    return arr.join('#');
+}
