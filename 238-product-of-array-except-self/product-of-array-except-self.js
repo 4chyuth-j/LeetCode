@@ -4,9 +4,7 @@
  */
 var productExceptSelf = function(nums) {
     let res = [];
-    
-    // let suf = [];
-
+   
     let start1 =1;
     for(let i=0; i<nums.length; i++){
         res.push(start1);
@@ -18,12 +16,7 @@ var productExceptSelf = function(nums) {
         res[i] = res[i]*start2;
         start2 = start2*nums[i];
     }
-    // console.log(pref)
-    // console.log(suf)
-
-    // for(let i=0; i<nums.length; i++){
-    //     res.push(pref[i]*suf[i]);
-    // }
+    
 
     return res;
 };
