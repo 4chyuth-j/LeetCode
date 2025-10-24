@@ -13,17 +13,15 @@ var totalFruit = function (fruits) {
         if (fruitMap.size <= 2) {
             maxlen = Math.max(maxlen, r - l + 1);
         } else {
-            while (fruitMap.size > 2) {
-
-                fruitMap.set( fruits[l] , (fruitMap.get(fruits[l])) - 1);
+            
+                fruitMap.set(fruits[l], (fruitMap.get(fruits[l])) - 1);
 
                 if (fruitMap.get(fruits[l]) == 0) {
                     fruitMap.delete(fruits[l]);
                 }
 
-
                 l++;
-            }
+           
         }
 
         r++;
