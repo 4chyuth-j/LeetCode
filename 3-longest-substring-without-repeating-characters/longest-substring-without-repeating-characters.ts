@@ -5,14 +5,12 @@ function lengthOfLongestSubstring(s: string): number {
     let set = new Set();
 
     while(r<s.length){
-        if(set.has(s[r])){
+        
             while(set.has(s[r])){
-                if(set.has(s[l])){
-                    set.delete(s[l]);
-                }
+                set.delete(s[l]);
                 l++;
             }
-        }
+        
 
         set.add(s[r]);
         maxLen = Math.max(maxLen,r-l+1);
