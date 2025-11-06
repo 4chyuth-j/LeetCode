@@ -15,7 +15,6 @@ var maximumNumberOfStringPairs = function(words) {
                 set.add(j);
             }
         }
-        // res = Math.max(count,res);
     }
     return res;
 };
