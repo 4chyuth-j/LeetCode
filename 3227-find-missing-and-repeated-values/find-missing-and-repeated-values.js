@@ -3,26 +3,27 @@
  * @return {number[]}
  */
 var findMissingAndRepeatedValues = function (grid) {
-    let n = grid.length;
-    let arr = new Array(n * n + 1).fill(0);
-    let res = [];
-    for (let i = 0; i < n; i++) {
-        for (let j = 0; j < n; j++) {
-            if (arr[grid[i][j]] == 0) {
-                arr[grid[i][j]]++;
-            } else {
-                res[0] = grid[i][j];
+    const n = grid.length;
+    const freq = new Array(n * n + 1).fill(0);
+    const result = [];
 
+    // Count occurrences
+    for (const row of grid) {
+        for (const val of row) {
+            freq[val]++;
+            if (freq[val] === 2) {
+                result[0] = val; 
             }
         }
     }
 
-    for (let i = 1; i < arr.length; i++) {
-        if (arr[i] == 0) {
-            res.push(i);
+    // Find missing number
+    for (let i = 1; i <= n * n; i++) {
+        if (freq[i] === 0) {
+            result[1] = i;
             break;
         }
     }
 
-    return res;
+    return result;
 };
