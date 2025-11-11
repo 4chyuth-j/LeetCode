@@ -3,19 +3,21 @@
  * @return {number}
  */
 var majorityElement = function(nums) {
-    let obj = [];
+    let freq = {};
     for(let i=0; i<nums.length; i++){
-        let elem = obj.find(item=>item.val == nums[i]);
-        if(elem){
-            elem.count++;
+        if(!freq[nums[i]]){
+            freq[nums[i]] = 1;
         } else {
-            obj.push({val:nums[i], count:1});
+            freq[nums[i]]++;
         }
-       
     }
 
-    obj.sort((a,b)=>b.count-a.count);
+    let majorElem = nums[0];
+    for(let item of Object.keys(freq)){
+        if(freq[item]>freq[majorElem]){
+            majorElem = item;
+        }
+    }
 
-    
-    return obj[0].count>nums.length/2? obj[0].val: 0;
+    return Number(majorElem);
 };
