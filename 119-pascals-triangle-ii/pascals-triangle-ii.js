@@ -7,7 +7,6 @@ var getRow = function(rowIndex) {
     if(rowIndex==0){
         return pasc[0]
     }
-
     for(let i=1;i<=rowIndex; i++){
         let dum = [0,...pasc[i-1],0];
         let res = [];
