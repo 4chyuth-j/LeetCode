@@ -4,7 +4,6 @@
  * @return {number}
  */
 var minOperations = function(nums, k) {
-//    let flag = new Array(k).fill(0);
    let flag = new Set();
 
    for(let i=1; i<=k; i++){
