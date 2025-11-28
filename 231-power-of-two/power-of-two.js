@@ -3,11 +3,23 @@
  * @return {boolean}
  */
 var isPowerOfTwo = function(n) {
-    function poweTwo(num){
-        if(num<=0) return false;
-        if(num==1) return true;
-        return poweTwo(num/2);
+    if(n==1) return true;
+
+    if(n==0) return false;
+
+    return checkPower(n);
+};
+
+function checkPower(num){
+    if(num%2!=0){
+        return false;
     }
 
-    return poweTwo(n);
-};
+    let newNum = Math.floor(num/2);
+    if(newNum==1){
+         return true
+    } else {
+        return checkPower(newNum);
+    }
+ 
+}
