@@ -11,11 +11,10 @@ function selfDividingNumbers(left: number, right: number): number[] {
             };
             num = Math.floor(num/10); 
         }
-
+        //checking for existance 
         if(flag){
             res.push(i);
         }
     }
-
     return res;
 };
