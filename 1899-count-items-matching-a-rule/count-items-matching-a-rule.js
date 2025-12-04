@@ -6,8 +6,16 @@
  */
 var countMatches = function (items, ruleKey, ruleValue) {
     let count = 0;
-    for (let i = 0; i < items.length; i++) {
-        if((ruleKey == 'type' && ruleValue == items[i][0]) || (ruleKey == "color" && ruleValue == items[i][1]) || (ruleKey == 'name' && ruleValue == items[i][2])){
+    let index = {
+        "type": 0,
+        "color": 1,
+        "name": 2
+    }
+    
+    let i = index[ruleKey];
+
+    for(let item of items){
+        if(item[i]==ruleValue){
             count++;
         }
     }
