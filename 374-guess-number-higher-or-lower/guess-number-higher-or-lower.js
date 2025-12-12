@@ -13,18 +13,19 @@
  */
 var guessNumber = function(n) {
 
-    return findNum(1,n);
+    let start = 1; let end = n;
+
+    while(start<=end){
+        let mid = Math.floor((start+end)/2);
+        let guessNum = guess(mid);
+        if(guessNum==0) return mid;
+
+        if(guessNum==-1){
+           end = mid-1; 
+        } else {
+            start = mid+1;
+        }
+    }
     
 };
 
-function findNum(start=1,end){
-    let mid = Math.floor((start+end)/2);
-    let num = guess(mid);
-    if(num==0){
-        return mid;
-    } else if(num==-1){
-        return findNum(start,mid-1);
-    } else {
-        return findNum(mid+1,end);
-    }
-}
