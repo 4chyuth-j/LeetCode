@@ -3,14 +3,10 @@
  * @return {string}
  */
 var removeTrailingZeros = function(num) {
-    let zeroInd = num.length;
-    for(let i=num.length-1; i>=0; i--){
-        if(num[i]==0){
-            zeroInd = i;
-        } else {
-            break;
-        }
+    let i = num.length-1;
+    while(i>=0 && num[i]==="0"){
+        i--;
     }
 
-    return num.slice(0,zeroInd);
+    return num.slice(0,i+1);
 };
