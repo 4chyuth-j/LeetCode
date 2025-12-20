@@ -7,10 +7,10 @@ var minDeletionSize = function(strs) {
     let cols = strs[0].length;
 
     while(cols>0){
-        let ref = strs[0][cols-1].charCodeAt(0)-96;
+        let ref = strs[0][cols-1];
         for(let item of strs){
-            if(ref<=item[cols-1].charCodeAt(0)-96){
-                ref = item[cols-1].charCodeAt(0)-96;
+            if(ref<=item[cols-1]){
+                ref = item[cols-1];
             } else {
                 count++;
                 break;
