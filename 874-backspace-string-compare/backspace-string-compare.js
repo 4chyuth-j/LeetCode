@@ -7,33 +7,26 @@ var backspaceCompare = function(s, t) {
     let i=0, j=0;
     s = s.split('');
     t = t.split('');
+
+    processString(s);
+    processString(t);
     
-    while(i<s.length){
-        if(s[i]==="#"){
-            if(s[i-1]){
-                s.splice(i-1,2);
+
+    return s.join("")===t.join("");
+};
+
+function processString(str){
+    let i = 0;
+    while(i<str.length){
+        if(str[i]==="#"){
+            if(str[i-1]){
+                str.splice(i-1,2);
                 i--;
             } else {
-                s.splice(i,1)
+                str.splice(i,1)
             }
         } else {
             i++;
         }
     }
-
-    while(j<t.length){
-        if(t[j]==="#"){
-            if(t[j-1]){
-                t.splice(j-1,2);
-                j--;
-            } else{
-                t.splice(j,1);
-            }
-        } else {
-            j++;
-        }
-    }
-    
-
-    return s.join("")===t.join("");
-};
+}
