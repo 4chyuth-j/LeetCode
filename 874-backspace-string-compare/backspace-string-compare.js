@@ -7,6 +7,7 @@ var backspaceCompare = function(s, t) {
     let i=0, j=0;
     s = s.split('');
     t = t.split('');
+    
     while(i<s.length){
         if(s[i]==="#"){
             if(s[i-1]){
@@ -32,8 +33,7 @@ var backspaceCompare = function(s, t) {
             j++;
         }
     }
-    console.log({s})
-    console.log({t})
+    
 
     return s.join("")===t.join("");
 };
