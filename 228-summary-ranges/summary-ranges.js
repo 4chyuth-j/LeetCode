@@ -17,8 +17,6 @@ var summaryRanges = function(nums) {
             curr = num;
     }
 
-    console.log(map);
-
     let res = [];
 
     for(let [key,val] of map){
