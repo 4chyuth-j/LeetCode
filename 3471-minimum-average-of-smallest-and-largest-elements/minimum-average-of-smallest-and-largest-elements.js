@@ -3,14 +3,14 @@
  * @return {number}
  */
 var minimumAverage = function(nums) {
-    let averages = new Array();
+    const n = nums.length;
     nums.sort((a,b)=>a-b);
-    while(nums.length>0){
-        let a = nums.pop();
-        let b = nums.shift();
-        let avg = (a+b)/2;
-        averages.push(avg);
+    let minAvg = (nums[0] + nums[n-1])/2;
+
+    for(let i=1; i<n/2; i++){
+        const avg = (nums[i] +nums[n-1-i])/2;
+        minAvg = Math.min(minAvg,avg);
     }
-    averages.sort((a,b)=>a-b);
-    return averages[0];
+
+    return minAvg;
 };
