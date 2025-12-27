@@ -10,8 +10,7 @@ var uniqueMorseRepresentations = function (words) {
     for(let item of words){
         let word = '';
         for(let i=0; i<item.length; i++){
-            let ind = item[i].charCodeAt(0)-97;
-            word+=morse[ind];
+            word+=morse[item[i].charCodeAt(0)-97];
         }
         wordMorse.add(word);
     }
