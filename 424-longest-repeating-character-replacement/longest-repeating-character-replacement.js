@@ -21,9 +21,7 @@ var characterReplacement = function(s, k) {
         l++;
      }
 
-     if((r-l+1)-maxFreq<=k){
-        maxLen = Math.max(maxLen,r-l+1);
-     }
+    maxLen = Math.max(maxLen,r-l+1);
 
      r++;
 
