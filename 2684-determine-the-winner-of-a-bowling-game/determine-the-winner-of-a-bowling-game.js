@@ -5,39 +5,20 @@
  */
 var isWinner = function(player1, player2) {
     let scoreOne = 0,scoreTwo =0;
-    let count = 0
+    
     for(let i=0; i<player1.length; i++){
-        if(count>0){
-            scoreOne += player1[i]*2;
-            if(player1[i]==10){
-                count=2;
-            } else {
-                count--;
-            }
+        if(player1[i-1]==10 || player1[i-2]==10){
+            scoreOne+=2*player1[i];
         } else {
-            if(player1[i]==10){
-                count=2;
-            } 
-            scoreOne += player1[i]
+            scoreOne+=player1[i];
         }
-    }
 
-    count =0;
-
-    for(let i=0; i<player2.length; i++){
-        if(count>0){
-            scoreTwo += player2[i]*2;
-            if(player2[i]==10){
-                count=2;
-            } else {
-                count--;
-            }
+        if(player2[i-1]==10 || player2[i-2]==10){
+            scoreTwo+=2*player2[i];
         } else {
-            if(player2[i]==10){
-                count=2;
-            } 
-            scoreTwo += player2[i]
+            scoreTwo+=player2[i];
         }
+        
     }
 
     if(scoreOne>scoreTwo){
