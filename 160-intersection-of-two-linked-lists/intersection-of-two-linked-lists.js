@@ -12,25 +12,36 @@
  * @return {ListNode}
  */
 var getIntersectionNode = function(headA, headB) {
-    let set = new Set();
+    let l1 = 0,l2=0;
     let dum = headA;
-
     while(dum){
-        set.add(dum);
+        l1++;
         dum = dum.next;
     }
-
-    console.log(Set);
 
     dum = headB;
-
     while(dum){
-        if(set.has(dum)){
-            return dum;
-        }
-
+        l2++;
         dum = dum.next;
     }
 
-    return null;
+    if(l1<l2){
+        return collisionPoint(headA,headB,l2-l1);
+    } else {
+        return collisionPoint(headB,headA,l1-l2);
+    }
 };
+
+
+function collisionPoint(t1,t2,d){
+    while(d){
+        d--;
+        t2 = t2.next;
+    }
+    while(t1!=t2){
+        t1 = t1.next;
+        t2 = t2.next;
+    }
+
+    return t1;
+}
