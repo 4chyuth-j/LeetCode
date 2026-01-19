@@ -8,8 +8,7 @@ var freqAlphabets = function (s) {
 
     for(let i=s.length-1; i>=0; i--){
         if(s[i]=="#"){
-            let slice = s.slice(i-2,i);
-            res = map[slice] + res;
+            res = map[s.slice(i-2,i)] + res;
             i = i-2;
         } else {
             res = map[s[i]]+res;
