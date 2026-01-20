@@ -10,26 +10,16 @@ var isSumEqual = function(firstWord, secondWord, targetWord) {
     const secondNum = getNumericalVal(secondWord);
     const thirdNum = getNumericalVal(targetWord);
 
-    const calc = firstNum+ secondNum;
-
-    return calc==thirdNum;
+    return firstNum + secondNum===thirdNum;
 };
 
 function getNumericalVal(str){
-    let res = '';
+    let res = 0;
     
     for(let c of str){
-        res+=c.charCodeAt(0)-97;
+        res=res*10+c.charCodeAt(0)-97;
     }
 
-
-    while(res[0]=='0'){
-        res = res.slice(1);
-    }
-
-    if(res==''){
-        return 0;
-    } else {
-        return Number(res);
-    }
+    return res;
+    
 }
