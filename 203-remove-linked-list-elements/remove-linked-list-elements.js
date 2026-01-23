@@ -17,17 +17,14 @@ var removeElements = function(head, val) {
         head = head.next
     }
 
-    let prev = null;
     let curr = head;
 
-    while(curr){
+    while(curr && curr.next){
         
-        if(curr.val == val){
-            prev.next = curr.next;
-            curr = prev.next;
+        if(curr.next.val == val){
+           curr.next = curr.next.next;
         } else {
-            prev = curr;
-            curr = curr.next
+           curr = curr.next;
         }
         
     }
