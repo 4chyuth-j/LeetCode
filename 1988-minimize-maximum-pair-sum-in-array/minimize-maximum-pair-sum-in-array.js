@@ -3,16 +3,13 @@
  * @return {number}
  */
 var minPairSum = function(nums) {
-    let stack = [...nums].sort((a,b)=>a-b);
-    let arr = [];
-    while(stack.length>0){
-        arr.push(stack.pop());
-        arr.push(stack.shift());
-    }
-
+    nums.sort((a,b)=>a-b);
     let res = 0;
-    for(let i=0; i<arr.length-1; i+=2){
-        res = Math.max(res,arr[i]+arr[i+1]);
+    let start = 0, end = nums.length-1;
+    while(start<end){
+        res = Math.max(res,nums[start]+nums[end]);
+        start++;
+        end--;
     }
 
     return res;
