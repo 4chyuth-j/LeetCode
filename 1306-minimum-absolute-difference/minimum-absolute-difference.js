@@ -10,13 +10,13 @@ var minimumAbsDifference = function(arr) {
         let diff = arr[i+1]-arr[i];
         if(diff<min){
           min = diff;
-          res = [i];
+          res = [[arr[i],arr[i+1]]];
         } else if(diff==min) {
-            res.push(i);
+            res.push([arr[i],arr[i+1]]);
         }
         
     }
 
-    return res.map(ind=>[arr[ind],arr[ind+1]]);
+    return res;
 
 };
