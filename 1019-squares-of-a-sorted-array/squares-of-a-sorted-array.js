@@ -3,10 +3,18 @@
  * @return {number[]}
  */
 var sortedSquares = function(nums) {
-    for(let i=0; i<nums.length; i++){
-        nums[i] = nums[i]*nums[i];
+    let res = new Array(nums.length);
+    let left = 0, right = nums.length-1;
+
+    for(let i=nums.length-1; i>=0; i--){
+        if(Math.abs(nums[left]) > Math.abs(nums[right])){
+            res[i] = nums[left]**2;
+            left++;
+        } else {
+            res[i] = nums[right]**2;
+            right--;
+        }
     }
 
-    nums.sort((a,b)=>a-b);
-    return nums;
+    return res;
 };
