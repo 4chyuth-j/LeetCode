@@ -5,16 +5,19 @@
 var makeFancyString = function(s) {
     if(s.length<2) return s;
 
-    let res = [s[0],s[1]]
+    let res = [];
+    let count = 1;
     
-    for(let i=2; i<s.length; i++){
-      const n = res.length;
-      if(res[n-1]===res[n-2] && res[n-1]===s[i]){
-        continue;
+    for(let i=0; i<s.length; i++){
+      if(i>0 && s[i]==s[i-1]){
+        count++;
+      } else {
+        count=1;
       }
 
-      res.push(s[i]);
-
+      if(count<=2){
+        res.push(s[i])
+      }
     }
 
     return res.join("");
