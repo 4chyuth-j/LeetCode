@@ -12,22 +12,20 @@
  */
 var maxDepth = function(root) {
     if(!root) return 0;
-    let depth =0;
-    let queue = [root];
-    let levelSize= 0;
+   
+    const stack = [[root,1]];
+    let maxDepth = 0;
 
-
-    while(queue.length>0){
-        levelSize = queue.length;
-        depth++;
-        for(let i=0; i<levelSize; i++){
-            let item = queue.shift();
-
-            if(item.left) queue.push(item.left);
-            if(item.right) queue.push(item.right);
+    while(stack.length>0){
+        const [node,depth] = stack.pop();
+        if(node){
+            maxDepth = Math.max(maxDepth,depth);
+            stack.push([node.left,depth+1]);
+            stack.push([node.right,depth+1]);
         }
     }
 
-    return depth;
+    return maxDepth;
      
 };
+
