@@ -4,7 +4,7 @@
  */
 var reverseByType = function(s) {
     if(s.length<=1) return s;
-    const str = [];
+    let str = ''
     const char = [];
     const spec = [];
 
@@ -18,12 +18,12 @@ var reverseByType = function(s) {
 
     for(let item of s){
         if(/^[a-z]+$/.test(item)){
-            str.push(char.pop());
+            str+=char.pop();
         } else {
-            str.push(spec.pop());
+            str+=spec.pop();
         }
     }
 
-    return str.join('');
+    return str;
     
 };
