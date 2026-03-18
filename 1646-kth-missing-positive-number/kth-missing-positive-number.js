@@ -4,18 +4,17 @@
  * @return {number}
  */
 var findKthPositive = function(arr, k) {
-    let ref = 1;
     let temp = [];
-    let i = 0;
-    while(temp.length!==k){
-        if(arr[i]!=ref){
-            temp.push(ref);
-            ref++;
+    let ref = 1;
+    let i = 0
+    while(temp.length!=k){
+        if(ref!=arr[i]){
+            temp.push(ref++)
         } else {
             ref++;
             i++;
         }
     }
 
-    return temp.pop();
+    return temp.pop()
 };
