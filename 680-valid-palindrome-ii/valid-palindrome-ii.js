@@ -22,6 +22,8 @@ var validPalindrome = function(s) {
                 return false;
             }
 
+            flag = false;
+
         } else {
             return false;
         }
