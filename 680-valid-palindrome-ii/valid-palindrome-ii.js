@@ -4,31 +4,24 @@
  */
 var validPalindrome = function(s) {
     if(s.length<=2) return true;
-    let flag = true;
+
     let i = 0 , j = s.length -1;
+
     while(i<=j){
         if(s[i]==s[j]){
             i++;
             j--;
-        } else if (flag){
+        } else {
             const lCheck = checkPal(i+1,j);
             const rCheck = checkPal(i,j-1);
 
-            if(lCheck){
-                // i++;
-                return true;
-            } else if (rCheck){
-                // j--;
+            if(lCheck || rCheck){
                 return true;
             } else {
                 return false;
             }
 
-            flag = false;
-
-        } else {
-            return false;
-        }
+        } 
     }
 
     function checkPal(l,r){
@@ -40,10 +33,8 @@ var validPalindrome = function(s) {
                 return false;
             }
         }
-
         return true;
     }
-
     
     return true;
 
