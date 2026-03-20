@@ -15,9 +15,11 @@ var validPalindrome = function(s) {
             const rCheck = checkPal(i,j-1);
 
             if(lCheck){
-                i++;
+                // i++;
+                return true;
             } else if (rCheck){
-                j--;
+                // j--;
+                return true;
             } else {
                 return false;
             }
