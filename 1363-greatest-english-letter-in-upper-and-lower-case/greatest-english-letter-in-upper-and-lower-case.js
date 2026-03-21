@@ -3,25 +3,15 @@
  * @return {string}
  */
 var greatestLetter = function(s) {
-    const lower = new Array(26).fill(0);
-    const upper = new Array(26).fill(0);
+    const set = new Set(s);
+    for(let i=25; i>=0; i--){
+        let lower = String.fromCharCode(97+i);
+        let upper = String.fromCharCode(65+i);
 
-    for(let c of s){
-        let code = c.toLowerCase().charCodeAt(0)-97;
-        if(/^[A-Z]$/.test(c)){
-            upper[code]++;
-        } else {
-            lower[code]++;
+        if(set.has(lower) && set.has(upper)){
+            return upper;
         }
     }
 
-    let largest = ''
-
-    for(let i=0; i<26; i++){
-        if(lower[i] && upper[i]){
-            largest = String.fromCharCode(i+97).toUpperCase();
-        }
-    }
-
-    return largest;
+    return '';
 };
