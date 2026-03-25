@@ -4,7 +4,8 @@
  * @return {number}
  */
 var countBalls = function(lowLimit, highLimit) {
-    let map = new Map();
+
+    let freq = new Array(46).fill(0);
 
     const getSum = (num)=>{
         let sum = 0;
@@ -19,12 +20,12 @@ var countBalls = function(lowLimit, highLimit) {
 
     while(lowLimit<=highLimit){
         let res = getSum(lowLimit);
-        map.set(res, (map.get(res) || 0) + 1 );
+        freq[res]++;
         lowLimit++;
     }
 
     let ballNum = 0;
-    for(let [key,val] of map){
+    for(let val of freq){
         ballNum = Math.max(ballNum,val);
     }
 
