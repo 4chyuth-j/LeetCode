@@ -5,18 +5,23 @@
  * @return {number[]}
  */
 var twoOutOfThree = function(nums1, nums2, nums3) {
-    let set1 = new Set(nums1)
-    let set2 = new Set(nums2)
-    let set3 = new Set(nums3)
-    let set = new Set([...nums1,...nums2,...nums3]);
+    let ans = new Set();
+    let set1 = new Set(nums1);
 
-    let res = [];
-
-    for(let val of set ){
-       if( (set1.has(val)&&set2.has(val)) || (set1.has(val)&& set3.has(val)) || (set2.has(val)&& set3.has(val)) ){
-         res.push(val);
-       }
+    let set2 = new Set();
+    for(let n of nums2){
+        set2.add(n);
+        if(set1.has(n)){
+            ans.add(n);
+        }
     }
 
-    return res;
+    for(let n of nums3){
+        if(set1.has(n) || set2.has(n)){
+            ans.add(n);
+        }
+    }
+
+    return [...ans];
+    
 };
