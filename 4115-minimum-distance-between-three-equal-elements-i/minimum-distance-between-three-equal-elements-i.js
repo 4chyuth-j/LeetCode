@@ -2,18 +2,21 @@
  * @param {number[]} nums
  * @return {number}
  */
-var minimumDistance = function(nums) {
-    let min = Infinity ;
-    for(let i=0; i<nums.length-2; i++){
-        for(let j=i+1; j<nums.length-1; j++){
-            for(let k=j+1; k<nums.length; k++){
-                if(nums[i]==nums[j] && nums[j]==nums[k]){
-                    let dis = Math.abs(i-j) + Math.abs(j-k) + Math.abs(k-i);
-                    min = Math.min(min,dis);
+var minimumDistance = function (nums) {
+    let min = Infinity;
+    for (let i = 0; i < nums.length - 2; i++) {
+        for (let j = i + 1; j < nums.length - 1; j++) {
+            if (nums[i] == nums[j]) {
+                for (let k = j + 1; k < nums.length; k++) {
+                    if (nums[j] == nums[k]) {
+                        let dis = Math.abs(i - j) + Math.abs(j - k) + Math.abs(k - i);
+                        min = Math.min(min, dis);
+                    }
                 }
             }
+
         }
     }
 
-    return min===Infinity? -1 : min;
+    return min === Infinity ? -1 : min;
 };
