@@ -5,38 +5,16 @@
  * @return {number}
  */
 var closestTarget = function(words, target, startIndex) {
-    if(words[startIndex]===target) return 0;
-    let count = 0;
+    let res = Infinity;
     const n = words.length;
-    let i=startIndex;
-    let left  = words[(i - 1 + n) % n];
-    let right = words[(i + 1) % n];
-    let res = 0;
-
-    while(count!=n){
-        count++;
-        if(left == target){
-            res = count;
-            break
+    for(let i=0; i<n; i++){
+        if(words[i]===target){
+            let diff = Math.abs(i-startIndex);
+            let dis = Math.min(diff,n-diff);
+            res = Math.min(res,dis);
         }
-        i--;
-        left  = words[(i - 1 + n) % n];
     }
 
-    i=startIndex;
-    count = 0;
-
-    while(count!=n){
-        count++;
-        if(right==target){
-            res = Math.min(res,count);
-            break;
-        }
-        i++;
-        right = words[(i + 1) % n];
-    }    
-    
-
-    return res==0?-1:res;
+    return res===Infinity?-1:res;
 
 };
