@@ -4,10 +4,16 @@
  * @return {boolean}
  */
 var isAcronym = function(words, s) {
-    let res = '';
+
+    if(words.length!=s.length) return false;
+
+    let i = 0;
+
     for(let w of words){
-        res+=w[0];
+        if(w[0]!=s[i++]){
+            return false;
+        }
     }
 
-    return res===s;
+    return true;
 };
