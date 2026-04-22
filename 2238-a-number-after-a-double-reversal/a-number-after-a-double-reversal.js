@@ -4,22 +4,10 @@
  */
 var isSameAfterReversals = function (num) {
 
+    if(num<10) return true;
 
-    function reverseNum(num) {
-        let rev = 0;
-        while (num > 0) {
-            let dig = num % 10;
-            num = Math.floor(num / 10);
-            rev = rev * 10 + dig;
+    let dig = num%10;
 
-        }
-
-        return rev;
-    }
-
-    let reversed1 = reverseNum(num);
-    let reversed2 = reverseNum(reversed1);
-
-    return reversed2 === num;
+    return dig===0? false: true;
 
 };
