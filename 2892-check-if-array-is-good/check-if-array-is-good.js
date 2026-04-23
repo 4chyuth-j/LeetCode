@@ -17,7 +17,7 @@ var isGood = function(nums) {
     if(res[max]!=2) return false;
 
     for(let i=1; i<max; i++){
-        if(res[i]==0 || res[i]>1) return false;
+        if(res[i]!=1) return false;
     }
 
     return true;
