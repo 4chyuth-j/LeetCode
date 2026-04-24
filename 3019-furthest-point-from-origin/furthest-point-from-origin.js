@@ -3,12 +3,17 @@
  * @return {number}
  */
 var furthestDistanceFromOrigin = function(moves) {
-    let l=0,r=0,blank=0;
-    for(let i=0; i<moves.length; i++){
-        if(moves[i]=='L') l++;
-        else if(moves[i]=='R') r++;
-        else if(moves[i]=='_') blank++;
+    let dashCount = 0, Lcount = 0, Rcount = 0;
+    for(let c of moves){
+        if(c==="_"){
+            dashCount++;
+        } else if (c==="L"){
+            Lcount++;
+        } else {
+            Rcount++;
+        }
     }
 
-    return Math.abs(l - r) + blank;
+
+    return Lcount>Rcount? Lcount+dashCount-Rcount : Rcount+dashCount-Lcount;
 };
