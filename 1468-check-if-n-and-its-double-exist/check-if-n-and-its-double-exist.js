@@ -3,13 +3,10 @@
  * @return {boolean}
  */
 var checkIfExist = function(arr) {
-    let map = new Map();
+    let set = new Set();
     for(let i=0; i<arr.length; i++){
-        map.set(arr[i]/2,i);
-    }
-
-    for(let i=0; i<arr.length; i++){
-        if(map.has(arr[i]) && map.get(arr[i])!=i) return true;
+        if(set.has(arr[i]*2) || set.has(arr[i]/2)) return true;
+        set.add(arr[i]);
     }
 
     return false;
