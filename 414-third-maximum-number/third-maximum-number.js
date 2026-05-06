@@ -6,9 +6,8 @@ var thirdMax = function(nums) {
     let max = [-Infinity,-Infinity,-Infinity];
 
     for(let num of nums){
-        console.log("test1")
+        
         if(max.includes(num)) continue;
-        console.log("test2")
 
         if(max[0]< num){
             max[2] = max[1];
