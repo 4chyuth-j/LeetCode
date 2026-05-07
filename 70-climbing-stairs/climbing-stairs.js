@@ -14,13 +14,11 @@ var climbStairs = function(n) {
         }
 
         const left = totalWays(s-1);
-        dp[s-1] = left;
-
-
         const right = totalWays(s-2);
-        dp[s-2] = right;
 
-        return left + right;
+        dp[s] = left+right;
+
+        return dp[s];
     }
 
     return totalWays(n);
