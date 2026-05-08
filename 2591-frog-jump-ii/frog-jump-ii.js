@@ -10,13 +10,8 @@ var maxJump = function(stones) {
     let cost = 0;
 
     for(let i=0; i<stones.length-2; i++){
-        let first = stones[i+1]-stones[i];
-        let second = stones[i+2]-stones[i];
-        let max = Math.max(first,second);
-
-        cost = Math.max(cost,max);
-
-
+        let val = stones[i+2]-stones[i];
+        cost = Math.max(cost,val);
     }
 
     return cost;
