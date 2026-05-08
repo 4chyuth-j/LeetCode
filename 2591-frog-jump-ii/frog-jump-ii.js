@@ -4,7 +4,7 @@
  */
 var maxJump = function(stones) {
     if(stones.length<=3){
-        return Math.abs(stones[0]-stones[stones.length-1]);
+        return stones[stones.length-1]-stones[0];
     }
 
     let cost = 0;
