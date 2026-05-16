@@ -4,23 +4,26 @@
  * @return {number[]}
  */
 var shortestToChar = function(s, c) {
-    let charMap = [];
+    let res = new Array(s.length);
+
+    let prev = -Infinity;
+
     for(let i=0; i<s.length; i++){
         if(s[i]===c){
-            charMap.push(i);
+            prev = i
         }
+
+        res[i] = i-prev;
     }
 
-    let res = new Array(s.length).fill(0);
+    prev = Infinity;
 
-    
-    for(let j=0; j<s.length; j++){
-        let min = Infinity;
-        for(let i=0; i<charMap.length; i++){
-            min = Math.min(Math.abs(j-charMap[i]),min);
+    for(let i=s.length-1; i>=0; i--){
+        if(s[i]===c){
+            prev = i
         }
 
-        res[j] = min;
+        res[i] = Math.min( res[i] , prev-i );
     }
 
     return res;
