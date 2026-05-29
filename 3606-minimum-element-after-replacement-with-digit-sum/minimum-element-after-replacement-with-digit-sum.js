@@ -3,17 +3,22 @@
  * @return {number}
  */
 var minElement = function(nums) {
-    let dum = [];
-    for(let i=0; i<nums.length; i++){
-        let val = nums[i];
-        let sum =0;
-        while(val>0){
-            sum += val%10;
-            val = Math.floor(val/10);
-        }
-        dum[i] = sum;
+    let min = Infinity;
+    for(let num of nums){
+        let digSum = getMin(num);
+        min = Math.min(min,digSum);
     }
 
-    dum.sort((a,b)=>a-b);
-    return dum[0];
+    function getMin(num){
+        let sum =0;
+        while(num>0){
+            let dig = num%10;
+            num = Math.floor(num/10);
+            sum +=dig;
+        }
+
+        return sum;
+    }
+
+    return min;
 };
