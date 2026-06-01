@@ -3,22 +3,15 @@
  * @return {number}
  */
 var minimumCost = function(cost) {
-    if(cost.length<3){
-        return cost.reduce((red,curr)=>red+curr,0);
-    }
-
-    cost.sort((a,b)=>a-b);
+   
+    cost.sort((a,b)=>b-a);
 
     let minCost = 0;
 
-    while(cost.length>0){
-        let count = 2;
-        while(count && cost.length){
-            minCost+=cost.pop();
-            count--;
+    for(let i=0; i<cost.length; i++){
+        if(i%3!==2){
+            minCost+=cost[i];
         }
-
-        if(cost.length) cost.pop();
     }
 
     return minCost;
