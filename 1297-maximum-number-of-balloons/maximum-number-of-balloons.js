@@ -19,7 +19,6 @@ var maxNumberOfBalloons = function(text) {
         }
     }
 
-    console.log(freqMap)
 
     if(freqMap.size<5) return 0;
 
