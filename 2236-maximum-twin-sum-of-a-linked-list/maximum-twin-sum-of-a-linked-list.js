@@ -10,9 +10,7 @@
  * @return {number}
  */
 var pairSum = function(head) {
-    if(head.next == null) return head.val;
-    if(head.next.next==null) return head.val+head.next.val;
-
+   
     let res = [];
     let slow = head;
     let fast = head;
@@ -22,12 +20,13 @@ var pairSum = function(head) {
         slow = slow.next;
         fast = fast.next.next;
     }
-    let size = res.length-1;
-    for(let i=0; i<res.length; i++){
-        res[size-i] += slow.val;
+    let max = 0
+    
+    while(slow){
+        max = Math.max(max, res.pop()+slow.val);
         slow = slow.next;
     }
 
 
-    return Math.max(...res)
+    return max;
 };
