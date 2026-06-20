@@ -10,31 +10,23 @@
  * @return {ListNode}
  */
 var mergeNodes = function(head) {
-    let arr = [];
-    let curr=  head.next;
+    let dummy = new ListNode();
+    let curr = dummy;
     let sum = 0;
-    while(curr){
-        if(curr.val==0){
-            arr.push(sum);
+    head = head.next;
+
+    while(head){
+        if(head.val === 0){
+            curr.next = new ListNode(sum);
+            curr = curr.next;
             sum=0;
         }
-        sum +=curr.val;
-        curr= curr.next;
+
+        sum += head.val;
+        head = head.next;
     }
 
-    let newHead = new ListNode();
 
-    curr = newHead;
-
-    for(let i=0; i<arr.length; i++){
-        curr.val = arr[i];
-        if(arr[i+1]){
-           curr.next = new ListNode();
-        }
-        curr = curr.next;
-    }
-
-    return newHead;
-
+    return dummy.next;
 
 };
