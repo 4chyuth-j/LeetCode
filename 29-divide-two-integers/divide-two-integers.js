@@ -6,14 +6,10 @@
 var divide = function(dividend, divisor) {
     const max = 2147483647;
     const min = -2147483648;
+    const isSigned = Math.sign(dividend)!=Math.sign(divisor);
     let res = Math.floor(Math.abs(dividend/divisor))
-    if(dividend<0 && divisor<0){
-        // return res;
-    } else if(dividend<0 || divisor<0){
+    if(isSigned){
         res = -res;
-        // return -res;
-    } else {
-        // return res;
     }
 
     if(res>max){
