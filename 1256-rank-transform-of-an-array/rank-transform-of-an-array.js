@@ -6,17 +6,15 @@ var arrayRankTransform = function(arr) {
     let newArr = [...arr].sort((a,b)=>(a-b));
     let obj = {};
     let rank = 1;
-    let mapArr = [];
 
     for(let i=0; i<newArr.length; i++){
         if(obj[newArr[i]]) continue;
-        obj[newArr[i]] = rank;
-        rank++
+        obj[newArr[i]] = rank++;  
     }
 
-    for(let item of arr){
-        mapArr.push(obj[item]);
+    for(let i=0; i<arr.length; i++){
+        arr[i] = obj[arr[i]];
     }
 
-    return mapArr;
+    return arr;
 };
