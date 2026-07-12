@@ -18,8 +18,5 @@ var arrayRankTransform = function(arr) {
         mapArr.push(obj[item]);
     }
 
-    //  mapArr = arr.map(item => obj[item]);
-
-    console.log(mapArr);
     return mapArr;
 };
