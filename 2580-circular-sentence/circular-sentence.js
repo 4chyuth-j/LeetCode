@@ -3,12 +3,15 @@
  * @return {boolean}
  */
 var isCircularSentence = function(sentence) {
-    const words = sentence.split(" ");
-    const n = words.length-1;
-    for(let i=0; i<=n; i++){
-        const word = words[i];
-        const nextWord = i==n? words[0]:words[i+1];
-        if(word[word.length-1]!=nextWord[0]) return false;
+
+    const n = sentence.length;
+
+    if(sentence[0]!=sentence[n-1]) return false;
+
+    for(let i=0; i<n-1; i++){
+       if(sentence[i]==" "){
+          if(sentence[i-1]!=sentence[i+1]) return false;
+       }
     }
 
     return true;
