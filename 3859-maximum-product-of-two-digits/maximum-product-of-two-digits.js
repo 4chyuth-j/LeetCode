@@ -3,22 +3,22 @@
  * @return {number}
  */
 var maxProduct = function (n) {
-    let nums = [];
-    while (n > 0) {
-        let num = n % 10;
-        nums.push(num);
-        n = Math.floor(n / 10);
-    }
+
     let large = -Infinity;
     let secondLarge = -Infinity;
-    for(let num of nums){
-        if(num>=large){
+
+    while (n > 0) {
+        let num = n % 10;
+
+        if (num >= large) {
             secondLarge = large;
             large = num
-        } else if(num>secondLarge){
+        } else if (num > secondLarge) {
             secondLarge = num;
         }
+        
+        n = Math.floor(n / 10);
     }
 
-    return large*secondLarge;
+    return large * secondLarge;
 };
