@@ -3,11 +3,32 @@
  * @return {number}
  */
 var maximumProduct = function(nums) {
-    nums.sort((a,b)=>a-b);
-    let n = nums.length;
-    
-    let prod1 = nums[n-1]*nums[n-2]*nums[n-3];
-    let prod2 = nums[0]*nums[1]*nums[n-1];
+    let num1 = -Infinity;
+    let num2 = -Infinity;
+    let num3 = -Infinity;
+    let min1 = Infinity;
+    let min2 = Infinity;
 
-    return Math.max(prod1,prod2);
+    for(let num of nums){
+        if(num>=num1){
+            num3 = num2;
+            num2 = num1;
+            num1 = num;
+        } else if(num>=num2){
+            num3 = num2;
+            num2 = num;
+        } else if(num>num3){
+            num3 = num;
+        }
+
+        if(num<=min1){
+            min2 = min1;
+            min1 = num;
+        } else if(num<min2){
+            min2 = num;
+        }
+
+    }
+
+    return Math.max(num1*num2*num3,min1*min2*num1);
 };
