@@ -3,31 +3,21 @@
  * @return {number}
  */
 var missingInteger = function (nums) {
+    let sum = nums[0];
 
-    let temp = nums[0];
-    let array = [temp];
-
-    let i = 1;
-
-    for( ; i<nums.length; i++){
-        if(nums[i]==temp+1){
-            array.push(nums[i]);
-            temp = nums[i];
+    for(let i=1; i<nums.length; i++){
+        if(nums[i]==nums[i-1]+1){
+            sum+=nums[i];
         } else {
             break;
         }
     }
 
-    let sum = array.reduce((acc,curr)=>acc+curr,0);
-
-    let set = new Set(nums);
-
-    while(set.has(sum)){
+    while(nums.includes(sum)){
         sum++;
     }
 
-
     return sum;
 
-
+   
 };
