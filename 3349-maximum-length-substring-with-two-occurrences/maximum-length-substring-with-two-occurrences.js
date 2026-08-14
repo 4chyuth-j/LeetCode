@@ -10,7 +10,6 @@ var maximumLengthSubstring = function(s) {
         map.set(s[j],(map.get(s[j])||0)+1);
         while(map.get(s[j])>2){
             map.set(s[i],map.get(s[i])-1);
-            if(map.get(s[i])==0) map.delete(s[i]);
             i++;
         }
 
