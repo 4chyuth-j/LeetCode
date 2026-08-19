@@ -11,7 +11,7 @@ var duplicateNumbersXOR = function(nums) {
     let res = 0;
     for(let [key,val] of freq){
         if(val==2){
-          res^=Number(key);
+          res^=key;
         }
     }
 
