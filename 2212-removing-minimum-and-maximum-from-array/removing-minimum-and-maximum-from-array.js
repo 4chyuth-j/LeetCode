@@ -5,19 +5,13 @@
 var minimumDeletions = function(nums) {
     let n = nums.length;
     let minInd = 0,maxInd = 0;
+    
     for(let i=0; i<n; i++){
-        if(nums[i]<nums[minInd]){
-            minInd = i;
-        }
-
-        if(nums[i]>nums[maxInd]){
-            maxInd = i;
-        }
+        if(nums[i]<nums[minInd]) minInd = i;
+        if(nums[i]>nums[maxInd]) maxInd = i;
     }
 
-    if(minInd>maxInd){
-        [minInd,maxInd] = [maxInd,minInd];
-    }
+    if(minInd>maxInd) [minInd,maxInd] = [maxInd,minInd];
 
     let front = maxInd + 1;
 
