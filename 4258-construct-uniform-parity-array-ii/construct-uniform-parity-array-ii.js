@@ -14,9 +14,5 @@ var uniformArray = function(nums1) {
         }
     }
 
-    if(allEven) return true;
-
-    if(smallElem%2==1) return true;
-
-    return false;
+    return allEven || smallElem%2===1;
 };
