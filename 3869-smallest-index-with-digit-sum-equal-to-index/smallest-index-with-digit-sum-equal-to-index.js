@@ -2,19 +2,20 @@
  * @param {number[]} nums
  * @return {number}
  */
-var smallestIndex = function(nums) {
-    for(let i=0; i<nums.length; i++){
-        if(nums[i]<10){
-            if(i==nums[i]) return i;
-        } else {
-            let digit = nums[i];
-            let sum = 0;
-            while(digit>0){
-                sum+=digit%10;
-                digit = Math.floor(digit / 10);
-            }
-            if(sum==i) return i;
+var smallestIndex = function (nums) {
+    const digitSum = (num)=>{
+        let sum = 0;
+        while(num>0){
+            let rem = num%10;
+            sum+=rem;
+            num = Math.floor(num/10);
         }
+
+        return sum;
+    }
+
+    for(let i=0; i<nums.length; i++){
+        if(digitSum(nums[i])===i) return i;
     }
 
     return -1;
