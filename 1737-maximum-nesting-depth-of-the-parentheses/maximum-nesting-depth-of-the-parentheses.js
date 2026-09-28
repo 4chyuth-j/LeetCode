@@ -4,16 +4,16 @@
  */
 var maxDepth = function(s) {
     let count=0;
-    let stack = [];
+    let maxCount = 0;
     for(let c of s){
         if(c=="("){
-            stack.push(c);
-            count = Math.max(count,stack.length);
+            count++;
+            maxCount = Math.max(count,maxCount);
         }
         if(c==")"){
-            stack.pop();
+            count--;
         }
     }
 
-    return count;
+    return maxCount;
 };
