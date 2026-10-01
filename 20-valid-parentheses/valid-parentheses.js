@@ -3,49 +3,24 @@
  * @return {boolean}
  */
 var isValid = function (s) {
-    
-    //  let arr = ['(', '[', '{'];
-    // let opening = new Set(arr);
-    // arr = [[')', '('], [']', '['], ['}', '{']];
-    // let closing = new Map(arr);
+   const pair = {
+      '(': ')',
+      '{': '}', 
+      '[': ']'
+   }
 
-    // let stack = [];
+   const stack = [];
 
-    // for (let i = 0; i < s.length; i++) {
-    //     if (opening.has(s[i])) {
-    //         stack.push(s[i]);
-    //     } else {
-    //         if(stack.length == 0) return false;
+   for(let c of s){
+      if(pair[c]){
+        stack.push(c);
+      } else {
+        const last = stack.pop();
+        if(pair[last]!==c) return false;
+      }
+   }
 
-    //         if (stack.pop() == closing.get(s[i])) {
-    //             continue;
-    //         } else {
-    //             return false;
-    //         }
-    //     }
-    // }
-
-    // if(stack.length != 0) return false;
-
-    // return true;
-
-    let arr = [[')','('],['}','{'],[']','[']];
-    let closing = new Map(arr);
-    let stack = [];
-    for(let i=0; i<s.length; i++){
-        if(!closing.has(s[i])){
-            stack.push(s[i]);
-        } else {
-            if(stack.length==0) return false;
-            if(stack.pop()==closing.get(s[i])){
-                continue;
-            } else {
-                return false;
-            }
-        }
-    }
-
-    return stack.length==0;
+   return stack.length==0;
 
 };
 
