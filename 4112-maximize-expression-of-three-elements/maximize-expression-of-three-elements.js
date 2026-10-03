@@ -3,8 +3,21 @@
  * @return {number}
  */
 var maximizeExpressionOfThree = function(nums) {
-    nums.sort((a,b)=>a-b);
-    let n = nums.length;
+    let max = -Infinity, secondMax = -Infinity, min = Infinity;
 
-    return nums[n-1]+nums[n-2] - nums[0];
+    for(let num of nums){
+        if(num>max){
+            secondMax = max;
+            max = num;
+        } else if(num>secondMax){
+            secondMax = num;
+        }
+
+        if(num<min){
+            min = num;
+        }
+    }
+
+    return max+secondMax-min;
+
 };
