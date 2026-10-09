@@ -4,16 +4,27 @@
  */
 var countOppositeParity = function(nums) {
     const n = nums.length;
-    const res = new Array(n).fill(0);
+    const res = [];
+    const counter = {odd:0, even:0};
 
-    for(let i=0; i<n-1; i++){
-        let rem = nums[i]%2;
-        for(let j=i+1; j<n; j++){
-            if(rem!=nums[j]%2){
-                res[i]+=1;
-            }
+    for(let i=0; i<n; i++){
+        if(nums[i]%2==0){
+            counter.even+=1;
+        } else {
+            counter.odd+=1;
         }
     }
+
+    for(let i=0; i<n; i++){
+        const key = nums[i]%2===0?"even":"odd";
+        const resKey = key=="even"?"odd":"even";
+        if(counter[key]>0){
+            counter[key]-=1;
+        }
+        res.push(counter[resKey]);
+    }
+
+
 
     return res;
 };
