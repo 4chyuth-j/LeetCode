@@ -2,16 +2,15 @@
  * @param {number} n
  * @return {number}
  */
-var tribonacci = function(n) {
-    const memo = {};
-    function calcTribonacci(n){
-        if(memo[n]) return memo[n];
-        if(n==0) return 0;
-        if(n<=2) return 1;
-        const result = calcTribonacci(n-1)+calcTribonacci(n-2)+calcTribonacci(n-3);
-        memo[n] = result;
-        return result;
+var tribonacci = function (n) {
+    if(n==0) return 0;
+    if(n<=2) return 1;
+
+    let t0 = 0,t1=1, t2=1;
+
+    for (let i = 3; i <= n; i++) {
+        [t0,t1,t2] = [t1,t2,t0+t1+t2];
     }
 
-    return calcTribonacci(n);
+    return t2;
 };
