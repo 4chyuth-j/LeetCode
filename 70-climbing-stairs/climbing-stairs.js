@@ -4,17 +4,12 @@
  */
 
 var climbStairs = function (n) {
-    const memo = {};
-    function getWays(n) {
-        if(memo[n]) return memo[n];
-        if (n == 1) return 1;
-        if (n == 2) return 2;
-        const result =  getWays(n - 1) + getWays(n - 2);
-
-        memo[n] = result;
-
-        return result;
+    const ways = [];
+    ways[1] = 1;
+    ways[2] = 2;
+    for(let i=3; i<=n; i++){
+        ways[i] = ways[i-1] + ways[i-2];
     }
 
-    return getWays(n);
+    return ways[n];
 };
