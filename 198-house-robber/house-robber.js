@@ -4,12 +4,12 @@
  */
 var rob = function(nums) {
     const n = nums.length;
-    const dp = [nums[0]];
-    dp[1] = Math.max(nums[0],nums[1]);
+    let prev1 = nums[0];
+    let prev2 = Math.max(nums[0],nums[1]);
 
     for(let i=2; i<n; i++){
-        dp[i] = Math.max( dp[i-1] , dp[i-2] + nums[i] );
+        [prev1,prev2] = [prev2, Math.max(prev2,nums[i]+prev1)];
     }
 
-    return dp[n-1];
+    return prev2?prev2:prev1;
 };
