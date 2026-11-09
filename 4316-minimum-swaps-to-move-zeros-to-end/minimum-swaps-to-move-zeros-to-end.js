@@ -3,24 +3,20 @@
  * @return {number}
  */
 var minimumSwaps = function(nums) {
-    let zeroCount = 0;
     let swapCount = 0;
-
-    for(let num of nums){
-        if(num===0){
-            zeroCount++;
+    let i=0,j=nums.length-1;
+    
+    while(i<j){
+        while(i < j && nums[j]===0){
+            j--;
         }
-    }
 
-    let i = nums.length-1;
-
-    while(zeroCount>0){
-        if(nums[i]!==0){
+        if(nums[i]===0 && i < j){
             swapCount++;
-        } 
+            j--;
+        }
 
-        zeroCount--;
-        i--;
+        i++;
     }
 
     return swapCount;
