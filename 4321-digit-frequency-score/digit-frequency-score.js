@@ -4,13 +4,9 @@
  */
 var digitFrequencyScore = function(n) {
     let str = String(n);
-    const freq = {};
+    const freq = new Array(10).fill(0);
 
     for(let c of str){
-        if(!freq[c]){
-            freq[c] = 0;
-        }
-
         freq[c]++;
     }
 
