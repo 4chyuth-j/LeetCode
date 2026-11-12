@@ -20,9 +20,7 @@ var longestMonotonicSubarray = function(nums) {
             decLen = Math.max(decRef,decLen);
             decRef = 1;
         }
-
-
-
+        
         i++;
     }
     
