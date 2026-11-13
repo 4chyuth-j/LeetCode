@@ -5,11 +5,11 @@
  */
 var limitOccurrences = function(nums, k) {
     let res = [];
-    let set = new Set();
+    let last = null;
     let count = 1;
     for(let num of nums){
-        if(!set.has(num)){
-            set.add(num);
+        if(last!=num){
+            last = num;
             count = 1;
         }
         if(count<=k){
