@@ -2,39 +2,32 @@
  * @param {number[]} nums
  * @return {number}
  */
-var maxDigitRange = function(nums) {
-    let digRange = [];
-    let max = -Infinity;
-    for(let num of nums){
-        let output = getRange(num);
-        max = Math.max(max,output);
-        digRange.push(output);
-    }
-
+var maxDigitRange = function (nums) {
     let sum = 0;
-    for(let i=0; i<nums.length; i++){
-        if(digRange[i]===max){
-            sum+=nums[i];
+    let maxRange = -Infinity;
+    for (let num of nums) {
+        let range = getRange(num);
+        if (range > maxRange) {
+            maxRange = range;
+            sum = num;
+        } else if (range === maxRange) {
+            sum += num;
         }
     }
 
     return sum;
 };
 
-function getRange(num){
-    let min = Infinity, max = -Infinity;
-    while(num>0){
-        let dig = num%10;
-        if(dig>max){
-            max = dig;
-        } 
+function getRange(num) {
+    let min = 9, max = 0;
+    while (num > 0) {
+        let digit = num % 10;
 
-         if(dig<min){
-            min = dig;
-        }
+        min = Math.min(min, digit);
+        max = Math.max(max, digit);
 
-        num = Math.floor(num/10);
+        num = Math.floor(num / 10);
     }
 
-    return max-min;
+    return max - min;
 }
