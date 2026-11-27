@@ -4,12 +4,20 @@
  */
 var minAbsoluteDifference = function(nums) {
     let min = Infinity;
+    let lastOne = -1;
+    let lastTwo = -1;
+
     for(let i=0; i<nums.length; i++){
         if(nums[i]===1){
-            for(let j=0; j<nums.length; j++){
-                if(nums[j]===2){
-                    min = Math.min(Math.abs(i-j),min);
-                }
+            lastOne = i;
+
+            if(lastTwo!==-1){
+                min = Math.min(min, i-lastTwo);
+            }
+        } else if(nums[i]===2){
+            lastTwo = i ;
+            if(lastOne!==-1){
+                min = Math.min(min, i-lastOne);
             }
         }
     }
